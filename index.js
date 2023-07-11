@@ -3,7 +3,38 @@ const sizeSlider = document.getElementById('sizeSlider');
 let columnChanger = document.querySelectorAll('.gridsquare');
 let label = document.querySelector("#sliderLabel");
 
+let black = document.querySelector(".black")
+let erase = document.querySelector(".erase")
+let rainbow = document.querySelector(".rainbow")
+
 let x = 16;
+
+let currentMode = 'black';
+
+black.addEventListener('click', () => { 
+    currentMode = 'black';
+});
+
+erase.addEventListener('click', () => { 
+    currentMode = 'erase';
+});
+
+function getRandomColor(){
+    let letters = '0123456789ABCDEF';
+    let color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+}
+
+rainbow.addEventListener('click', () => {
+    currentMode = 'rainbow';
+    });
+
+    
+
+
 
 function makeGrid(x = 16) {
     grid.style.gridTemplateColumns = `repeat(${x}, 1fr)`;
@@ -18,8 +49,16 @@ function makeGrid(x = 16) {
 }
 
 function colorChanger() { 
-    this.style.backgroundColor = '#000000';
-}
+        if (currentMode === 'black') {
+            this.style.backgroundColor = '#000000'; 
+        } else if (currentMode === 'erase') {
+            this.style.backgroundColor = '#FFFFFF'; 
+        } else if (currentMode === 'rainbow') {
+            this.style.backgroundColor = getRandomColor();
+        }
+    }
+
+
 
 let reset = document.querySelector('.reset');
 reset.addEventListener('click', updateGrid);
