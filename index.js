@@ -32,9 +32,6 @@ rainbow.addEventListener('click', () => {
     currentMode = 'rainbow';
     });
 
-    
-
-
 
 function makeGrid(x = 16) {
     grid.style.gridTemplateColumns = `repeat(${x}, 1fr)`;

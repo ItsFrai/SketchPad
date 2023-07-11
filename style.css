@@ -5,11 +5,7 @@ body {
   gap: 20px;
   align-items: center;
 }
-.row { 
-    border: 0.5px solid black;
-    
 
-}
 .gridsquare{ 
     border: 0.5px solid black;
     text-align: center;
